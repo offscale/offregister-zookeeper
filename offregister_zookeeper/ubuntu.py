@@ -1,8 +1,9 @@
 # -*- coding: utf8 -*-
 
-from fabric.api import run, sudo, local
+from fabric.api import run, sudo
 
-from offregister_fab_utils.apt import apt_depends, Package
+from offregister_fab_utils.apt import apt_depends
+from offregister_fab_utils import Package
 
 
 def install(*args, **kwargs):
