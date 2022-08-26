@@ -1,6 +1,5 @@
 # -*- coding: utf8 -*-
 
-from fabric.api import run, sudo
 from offregister_fab_utils import Package
 from offregister_fab_utils.apt import apt_depends
 
@@ -8,6 +7,7 @@ from offregister_fab_utils.apt import apt_depends
 def install(*args, **kwargs):
     version = "3.4.5"
     apt_depends(
+        c,
         Package(name="zookeeper", version=version),
         Package(name="zookeeperd", version=version),
     )
@@ -24,5 +24,5 @@ def install(*args, **kwargs):
 
 
 def serve(*args, **kwargs):
-    if run("service zookeeper status") == "zookeeper stop/waiting":
-        sudo("service zookeeper start")
+    if c.run("service zookeeper status") == "zookeeper stop/waiting":
+        c.sudo("service zookeeper start")
