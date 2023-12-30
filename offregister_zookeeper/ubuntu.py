@@ -4,7 +4,7 @@ from offregister_fab_utils import Package
 from offregister_fab_utils.apt import apt_depends
 
 
-def install(*args, **kwargs):
+def install(c, *args, **kwargs):
     version = "3.4.5"
     apt_depends(
         c,
@@ -23,6 +23,6 @@ def install(*args, **kwargs):
     return "zookeeper installed"
 
 
-def serve(*args, **kwargs):
+def serve(c, *args, **kwargs):
     if c.run("service zookeeper status") == "zookeeper stop/waiting":
         c.sudo("service zookeeper start")
