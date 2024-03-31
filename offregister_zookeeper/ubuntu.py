@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # -*- coding: utf8 -*-
 
 from offregister_fab_utils import Package
